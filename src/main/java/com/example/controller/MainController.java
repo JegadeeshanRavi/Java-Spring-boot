@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,13 +19,13 @@ public class MainController
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping ( "/user" )
+	@RequestMapping ( value = "/user", method = RequestMethod.GET )
 	public List <UserEntity> getAllUser ()
 	{
 		return userService.getAllUsers ();
 	}
 
-	@RequestMapping ( value = "/user/{id}" )
+	@RequestMapping ( value = "/user/{id}", method = RequestMethod.GET )
 	public UserEntity getUser ( @PathVariable Integer id )
 	{
 		return userService.getUser ( id );
